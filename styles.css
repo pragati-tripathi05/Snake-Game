@@ -1,0 +1,46 @@
+*{
+    box-sizing: border-box;
+}
+
+body{
+    margin: 0;
+    padding: 0;
+    background-color: black;
+}
+
+.container{
+    height: 100vh;
+    width: 100%;
+    background: black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.game-board{
+    height: 90vmin;
+    width: 90vmin;
+    background: linear-gradient(orange, yellow);
+}
+
+.score{
+    background: yellow;
+    padding: 4% 8%;
+    border-radius: 20px;
+}
+
+.snake{
+    background: #219d00;
+    border: 2px solid black;
+}
+
+.head{
+    background: url("./images/snake_head.png");
+    background-size: 100% 100%;
+}
+
+.food{
+    background: url("./images/apple_face.png");
+    background: 100% 100%;
+}
