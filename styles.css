@@ -37,11 +37,19 @@ body{
 .snake{
     background: #219d00;
     border: 2px solid black;
+    /* display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white; */
 }
 
 .head{
     background: url("./images/snake_head.png");
     background-size: 100% 100%;
+    /* display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white; */
 }
 
 .food{
