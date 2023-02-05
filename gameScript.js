@@ -8,6 +8,21 @@ const snakeBody = [
 ];
 
 function paint(currentTime) {
-  var TimeSeconds = (currentTime - lastPaintTime) / 1000;
+  var TimeInSeconds = (currentTime - lastPaintTime) / 1000;
   requestAnimationFrame(paint);
+  if (TimeInSeconds < 1 / SNAKE_SPEED) return;
+
+  lastPaintTime = currentTime;
+
+  // function to update status of snake, like size, death
+  upadate();
+
+  // function to make the snake
+  draw();
 }
+
+window.requestAnimationFrame(paint);
+
+function draw() {}
+
+function update() {}
