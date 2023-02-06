@@ -1,16 +1,21 @@
 var lastPaintTime = 0;
-const SNAKE_SPEED = 1;
+const SNAKE_SPEED = 3;
 let inputDirection = { x: 0, y: 0 };
 let lastInputDirection = inputDirection;
 
+const food = {
+  x: 15,
+  y: 10,
+};
+
 const snakeBody = [
   { x: 8, y: 8 },
-  { x: 9, y: 8 },
-  { x: 10, y: 8 },
-  { x: 11, y: 8 },
-  { x: 12, y: 8 },
+  // { x: 9, y: 8 },
+  // { x: 10, y: 8 },
+  // { x: 11, y: 8 },
+  // { x: 12, y: 8 },
 ];
-console.log(snakeBody);
+//console.log(snakeBody);
 
 const gameBoard = document.querySelector(".game-board");
 
@@ -32,13 +37,16 @@ window.requestAnimationFrame(paint);
 
 function draw() {
   drawSnake();
+  drawFood();
 }
 
 function update() {
   gameBoard.innerHTML = "";
   snakeMove();
+  snakeEatFood();
 }
 
+// Function to make the snake body
 function drawSnake() {
   snakeBody.forEach((segment, index) => {
     var snakeElement = document.createElement("div");
@@ -74,6 +82,17 @@ function drawSnake() {
   });
 }
 
+// Function to add apple to the board
+function drawFood() {
+  //console.log("drawFood");
+  var foodElement = document.createElement("div");
+  foodElement.style.gridColumnStart = food.x;
+  foodElement.style.gridRowStart = food.y;
+  foodElement.classList.add("food");
+  gameBoard.appendChild(foodElement);
+}
+
+// Function to control the movements of snake
 function snakeMove() {
   inputDirection = getInputDirection();
 
@@ -116,3 +135,5 @@ function getInputDirection() {
   lastInputDirection = inputDirection;
   return inputDirection;
 }
+
+function snakeEatFood() {}
