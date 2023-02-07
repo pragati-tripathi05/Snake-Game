@@ -3,7 +3,7 @@ const SNAKE_SPEED = 3;
 let inputDirection = { x: 0, y: 0 };
 let lastInputDirection = inputDirection;
 
-const food = {
+let food = {
   x: 15,
   y: 10,
 };
@@ -136,4 +136,22 @@ function getInputDirection() {
   return inputDirection;
 }
 
-function snakeEatFood() {}
+function snakeEatFood() {
+  if (isEat()) {
+    console.log("Ate");
+    // A function that will return new random position of apple on the board
+    food = getFoodRandomPosition();
+  }
+}
+
+// Function to check if snake ate apple or not
+function isEat() {
+  return snakeBody[0].x === food.x && snakeBody[0].y === food.y;
+}
+
+function getFoodRandomPosition() {
+  // Generating random values (till 16 since our grid is 16*16) for coordinates of x and y
+  // And since Math.random will give random numbers in decimal, we link it with Math.ceil
+
+  return { x: Math.ceil(Math.random() * 16), y: Math.ceil(Math.random() * 16) };
+}
