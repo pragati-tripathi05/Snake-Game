@@ -1,5 +1,6 @@
-var lastPaintTime = 0;
 const SNAKE_SPEED = 3;
+const SNAKE_BODY_EXPANSION = 1;
+var lastPaintTime = 0;
 let inputDirection = { x: 0, y: 0 };
 let lastInputDirection = inputDirection;
 
@@ -10,10 +11,10 @@ let food = {
 
 const snakeBody = [
   { x: 8, y: 8 },
-  { x: 9, y: 8 },
-  { x: 10, y: 8 },
-  { x: 11, y: 8 },
-  { x: 12, y: 8 },
+  // { x: 9, y: 8 },
+  // { x: 10, y: 8 },
+  // { x: 11, y: 8 },
+  // { x: 12, y: 8 },
 ];
 //console.log(snakeBody);
 
@@ -141,6 +142,8 @@ function snakeEatFood() {
     console.log("Ate");
     // A function that will return new random position of apple on the board
     food = getFoodRandomPosition();
+    // function to expand snake body length by 1 div everytime apple is eaten
+    expandSnake();
   }
 }
 
@@ -153,5 +156,24 @@ function getFoodRandomPosition() {
   // Generating random values (till 16 since our grid is 16*16) for coordinates of x and y
   // And since Math.random will give random numbers in decimal, we link it with Math.ceil
 
-  return { x: Math.ceil(Math.random() * 16), y: Math.ceil(Math.random() * 16) };
+  // Also, while loop to check that the random position of apple never comes on top of snake body ever
+  let a,
+    b,
+    condition = true;
+  while (condition) {
+    a = Math.ceil(Math.random() * 16);
+    b = Math.ceil(Math.random() * 16);
+    // Checking each segment/div of snake body
+    condition = snakeBody.some((segment) => {
+      return segment.x === a && segment.y === b;
+    });
+  }
+
+  return { x: a, y: b };
+}
+
+function expandSnake() {
+  for (let i = 0; i < SNAKE_BODY_EXPANSION; i++) {
+    snakeBody.push(snakeBody.length - 1);
+  }
 }

@@ -35,8 +35,9 @@ body{
 }
 
 .snake{
-    background: #219d00;
-    border: 2px solid black;
+    /* background: #219d00; */
+    background: #8ac33d;
+    border: 2px solid #219d00;
     /* display: flex;
     align-items: center;
     justify-content: center;
