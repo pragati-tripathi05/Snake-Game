@@ -10,10 +10,10 @@ let food = {
 
 const snakeBody = [
   { x: 8, y: 8 },
-  // { x: 9, y: 8 },
-  // { x: 10, y: 8 },
-  // { x: 11, y: 8 },
-  // { x: 12, y: 8 },
+  { x: 9, y: 8 },
+  { x: 10, y: 8 },
+  { x: 11, y: 8 },
+  { x: 12, y: 8 },
 ];
 //console.log(snakeBody);
 
