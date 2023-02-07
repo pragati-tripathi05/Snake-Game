@@ -1,5 +1,5 @@
-const SNAKE_SPEED = 3;
-const SNAKE_BODY_EXPANSION = 1;
+const SNAKE_SPEED = 5;
+const SNAKE_BODY_EXPANSION = 200;
 var lastPaintTime = 0;
 let inputDirection = { x: 0, y: 0 };
 let lastInputDirection = inputDirection;
@@ -19,6 +19,9 @@ const snakeBody = [
 //console.log(snakeBody);
 
 const gameBoard = document.querySelector(".game-board");
+
+const scoreBoard = document.getElementById("score");
+var score = 0;
 
 function paint(currentTime) {
   var TimeInSeconds = (currentTime - lastPaintTime) / 1000;
@@ -139,6 +142,8 @@ function getInputDirection() {
 
 function snakeEatFood() {
   if (isEat()) {
+    score += 10;
+    scoreBoard.innerHTML = score;
     console.log("Ate");
     // A function that will return new random position of apple on the board
     food = getFoodRandomPosition();
