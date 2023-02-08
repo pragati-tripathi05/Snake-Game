@@ -18,3 +18,14 @@
 <br/>
 
 ## **Glimpses**
+
+### `Initially`
+![Initial Position](https://user-images.githubusercontent.com/97211835/217468528-2869f9f3-1887-4263-a731-2485d8c14e6f.png)
+
+### `Game On`
+![Game](https://user-images.githubusercontent.com/97211835/217468562-861a6bf9-5703-4eff-a5c5-07219f678f12.png)
+
+### `Game Over`
+![GameOver](https://user-images.githubusercontent.com/97211835/217468587-b69c4748-18de-4cb9-bd49-309cab784e13.png)
+
+![Game-Over](https://user-images.githubusercontent.com/97211835/217468618-459c924b-206c-436a-9edd-bc06b900172d.png)
