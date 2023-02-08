@@ -1,4 +1,4 @@
-const SNAKE_SPEED = 3;
+let SNAKE_SPEED = 3;
 const SNAKE_BODY_EXPANSION = 2;
 var lastPaintTime = 0;
 let inputDirection = { x: 0, y: 0 };
@@ -189,7 +189,11 @@ function expandSnake() {
 // Function to check when snake bumps to board walls or its own body
 function checkGameOver() {
   if (snakeOutOfGrid() || snakeIntersection()) {
-    alert("Game Over");
+    document.querySelector(".alert").style.display = "block";
+    document.querySelector(".restart").addEventListener("click", function () {
+      window.location.reload();
+    });
+    SNAKE_SPEED = 0;
   }
 }
 

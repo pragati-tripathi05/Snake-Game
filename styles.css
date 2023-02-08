@@ -1,6 +1,7 @@
 *{
     box-sizing: border-box;
     font-family: 'Poppins', sans-serif;
+    color: black;
 }
 
 body{
@@ -22,16 +23,18 @@ body{
 .game-board{
     height: 90vmin;
     width: 90vmin;
-    background: linear-gradient(orange, yellow);
+    background: linear-gradient(rgb(221, 183, 95), rgb(170, 106, 188));
     display: grid;
     grid-template-columns: repeat(16,1fr);
     grid-template-rows: repeat(16,1fr);
+    margin-bottom: 1%;
 }
 
 .score{
     background: yellow;
     padding: 1% 5%;
     border-radius: 20px;
+    margin-top: 1%;
 }
 
 .snake{
@@ -45,7 +48,7 @@ body{
 }
 
 .head{
-    background: url("./images/snake_head.png");
+    background: url("./images/logo.png");
     background-size: 100% 100%;
     display: flex;
     align-items: center;
@@ -58,4 +61,14 @@ body{
     background: url("./images/apple_face.png");
     background-size: 100% 100%;
     z-index: 55;
+}
+
+.alert{
+    display: none;
+}
+
+.restart:hover{
+    background-color: black;
+    color: white;
+    border-radius: 5px;
 }
