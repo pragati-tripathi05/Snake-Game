@@ -1,5 +1,5 @@
-const SNAKE_SPEED = 5;
-const SNAKE_BODY_EXPANSION = 200;
+const SNAKE_SPEED = 3;
+const SNAKE_BODY_EXPANSION = 2;
 var lastPaintTime = 0;
 let inputDirection = { x: 0, y: 0 };
 let lastInputDirection = inputDirection;
@@ -109,6 +109,9 @@ function snakeMove() {
   //snake moving forward towards right
   snakeBody[0].x += inputDirection.x;
   snakeBody[0].y += inputDirection.y;
+
+  // To check the conditions of game over
+  checkGameOver();
 }
 
 function getInputDirection() {
@@ -180,5 +183,33 @@ function getFoodRandomPosition() {
 function expandSnake() {
   for (let i = 0; i < SNAKE_BODY_EXPANSION; i++) {
     snakeBody.push(snakeBody.length - 1);
+  }
+}
+
+// Function to check when snake bumps to board walls or its own body
+function checkGameOver() {
+  if (snakeOutOfGrid() || snakeIntersection()) {
+    alert("Game Over");
+  }
+}
+
+function snakeOutOfGrid() {
+  return (
+    // if snake goes towards left wall || right wall || top wall || bottom
+    snakeBody[0].x < 0 ||
+    snakeBody[0].x > 16 ||
+    snakeBody[0].y < 0 ||
+    snakeBody[0].y > 16
+  );
+}
+
+function snakeIntersection() {
+  for (let i = 1; i < snakeBody.length; i++) {
+    if (
+      snakeBody[0].x === snakeBody[i].x &&
+      snakeBody[0].y === snakeBody[i].y
+    ) {
+      return true;
+    }
   }
 }
