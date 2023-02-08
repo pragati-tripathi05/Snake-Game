@@ -1,4 +1,4 @@
-let SNAKE_SPEED = 3;
+let SNAKE_SPEED = 7;
 const SNAKE_BODY_EXPANSION = 2;
 var lastPaintTime = 0;
 let inputDirection = { x: 0, y: 0 };
